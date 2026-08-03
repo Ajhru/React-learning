@@ -1,4 +1,4 @@
-export const Data = {
+  const Data = {
 
     appwriteURL: String(import.meta.env.VITE_APPWRITE_URL),
     projectId: String(import.meta.env.VITE_PROJECT_ID),
@@ -7,3 +7,6 @@ export const Data = {
     buketId: String(import.meta.env.VITE_BUKET_ID),
 
 }
+
+
+export default Data
