@@ -1,17 +1,40 @@
-import { useState } from 'react'
-
+import { useEffect, useState } from 'react'
+import useDispatch from "react-redux"
+import authService from './appwrite/Auth'
+import { login, logout } from './store/authSlice'
 import './App.css'
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 function App() {
 
+  const [loading, SetLoading] = useState(true)
+  const dispatch = useDispatch()
 
-  return (
-    <>
-      <h1>
-        Alhamduliha for everthing
-      </h1>
-    </>
-  )
+  useEffect(() => {
+    authService.getCurrentuser()
+      .then((userData) => {
+        if (userData) {
+          dispatch(login(userData))
+        } else {
+          dispatch(logout())
+        }
+      }).finally(() => SetLoading(false))
+  }, [])
+
+
+  return !loading ? (
+    <div className='min-screen-h flex flex-wrap contant-between bg-gray-400'> 
+    <div className='w-full block'>
+      <Header/>
+      <main>
+        
+      </main>
+      <Footer/>
+    </div>
+    
+    </div>
+  ) : null ;
 }
 
 export default App
