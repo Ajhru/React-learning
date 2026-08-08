@@ -71,7 +71,7 @@ export class StorageService {
     }
 
 
-    async getPOst(slug) {
+    async getPost(slug) {
         try {
             await this.databases.getDocument(
                 DataBase.databaseId,
@@ -128,7 +128,7 @@ export class StorageService {
     }
 
     getFile(fileId) {
-        return this.buket(
+        return this.buket.getFilePreview(
             DataBase.buketId,
             fileId
         )
