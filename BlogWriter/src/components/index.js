@@ -6,6 +6,12 @@ import Container from "./container/container"
 import Button from "./Button";
 import Input from "./input";
 import RTE from "./RTE";
+import Signup from "./signup";
+import select from "./select";
+import Login from "./login";
+import PostForm from "./postForm";
+import PostCard from "./PostCard";
+
 
 export {
     Header,
@@ -16,4 +22,9 @@ export {
     Button,
     Input,
     RTE,
+    Signup,
+    select,
+    Login,
+    PostForm,
+    PostCard,
 }
