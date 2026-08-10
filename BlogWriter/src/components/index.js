@@ -11,7 +11,7 @@ import select from "./select";
 import Login from "./login";
 import PostForm from "./postForm";
 import PostCard from "./PostCard";
-
+import AuthLayout from "./AuthLayout"
 
 export {
     Header,
