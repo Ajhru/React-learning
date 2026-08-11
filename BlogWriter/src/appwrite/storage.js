@@ -1,4 +1,4 @@
-import DataBase from "../env_data"
+import DataBase from "../envData/DataBase"
 import { Client, ID, Storage, Databases, Query } from "appwrite"
 
 
@@ -101,7 +101,7 @@ export class StorageService {
 
     // file uplode services
 
-    async uplodeFile(file) {
+    async uploadFile(file) {
         try {
             return await this.buket.createFile(
                 DataBase.buketId,

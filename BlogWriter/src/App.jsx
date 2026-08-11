@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
-import useDispatch from "react-redux"
+import { useDispatch } from 'react-redux'
 import authService from './appwrite/Auth'
 import { login, logout } from './store/authSlice'
 import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import { Outlet } from 'react-router-dom'
+
 
 function App() {
 
@@ -23,12 +25,15 @@ function App() {
   }, [])
 
 
+  
+
+
   return !loading ? (
     <div className='min-screen-h flex flex-wrap contant-between bg-gray-400'> 
     <div className='w-full block'>
       <Header/>
       <main>
-        
+         <Outlet />
       </main>
       <Footer/>
     </div>

@@ -1,4 +1,4 @@
-import DataBase from "../env_data"
+import DataBase from "../envData/DataBase"
 import { Client, Account, ID } from "appwrite";
 
 
@@ -46,7 +46,8 @@ export class AuthService {
         try {
             return await this.account.get();
         } catch (error) {
-            throw error
+          console.log("Get user me " , error);
+          
         }
         return null;
     }

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Button, Input, RTE, Select } from "./index";
 // import storage from "../appwrite/storage";
 import appwriteService from "../appwrite/storage";
+ 
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -20,6 +21,8 @@ import { useSelector } from "react-redux";
     const userData = useSelector((state) => state.auth.userData);
 
     const submit = async (data) => {
+     
+        
         if (post) {
             const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
 
@@ -37,7 +40,6 @@ import { useSelector } from "react-redux";
             }
         } else {
             const file = await appwriteService.uploadFile(data.image[0]);
-
             if (file) {
                 const fileId = file.$id;
                 data.featuredImage = fileId;
