@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
  function PostForm({ post }) {
-    const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
+    const { register, handleSubmit, watch, setValue, control, getValues,  formState: { errors }  } = useForm({
         defaultValues: {
             title: post?.title || "",
             slug: post?.$id || "",
@@ -21,7 +21,8 @@ import { useSelector } from "react-redux";
     const userData = useSelector((state) => state.auth.userData);
 
     const submit = async (data) => {
-     
+    
+      console.log("userData:", userData);
         
         if (post) {
             const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
@@ -75,6 +76,17 @@ import { useSelector } from "react-redux";
 
     return (
         <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
+
+
+
+       {Object.keys(errors).length > 0 && (
+        <div className="w-full bg-red-100 p-2 mb-2 text-red-700">
+            {JSON.stringify(errors)}
+        </div>
+    )}
+
+
+
             <div className="w-2/3 px-2">
                 <Input
                     label="Title :"

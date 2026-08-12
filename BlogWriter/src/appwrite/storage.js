@@ -15,14 +15,14 @@ export class StorageService {
         this.buket = new Storage(this.client);
     }
 
-    async CreatePost({ tittle, slug, content, featuredImage, userId, status }) {
+    async CreatePost({ title, slug, content, featuredImage, userId, status }) {
         try {
             return await this.databases.createDocument(
                 DataBase.databaseId,
                 DataBase.collectionId,
                 slug,
                 {
-                    tittle,
+                    title,
                     content,
                     userId,
                     status,
@@ -36,14 +36,14 @@ export class StorageService {
         }
     }
 
-    async updatePost(slug, { tittle, content, featuredImage, status }) {
+    async updatePost(slug, { title, content, featuredImage, status }) {
         try {
             return this.databases.updateDocument(
                 DataBase.databaseId,
                 DataBase.collectionId,
                 slug,
                 {
-                    tittle,
+                    title,
                     featuredImage,
                     status,
                     content
@@ -73,7 +73,7 @@ export class StorageService {
 
     async getPost(slug) {
         try {
-            await this.databases.getDocument(
+            return await this.databases.getDocument(
                 DataBase.databaseId,
                 DataBase.collectionId,
                 slug,
