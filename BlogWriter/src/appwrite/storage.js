@@ -128,7 +128,7 @@ export class StorageService {
     }
 
     getFile(fileId) {
-        return this.buket.getFilePreview(
+        return this.buket.getFileView(
             DataBase.buketId,
             fileId
         )

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import storage from "../appwrite/storage";
 
 function PostCard({ $id, title, featuredImage }) {
-
+ 
     return (
         <>
             <Link to={`/post/${$id}`}>
