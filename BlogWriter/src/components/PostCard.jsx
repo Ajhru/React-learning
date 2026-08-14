@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import storage from "../appwrite/storage";
 
 function PostCard({ $id, title, featuredImage }) {
- 
+
     return (
         <>
             <Link to={`/post/${$id}`}>
@@ -11,7 +11,6 @@ function PostCard({ $id, title, featuredImage }) {
                     <div className='w-full justify-center mb-4'>
                         <img src={storage.getFile(featuredImage)} alt={title}
                             className='rounded-xl' />
-
                     </div>
                     <h2
                         className='text-xl font-bold'
@@ -19,7 +18,6 @@ function PostCard({ $id, title, featuredImage }) {
                 </div>
 
             </Link>
-
         </>
     )
 
