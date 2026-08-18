@@ -4,7 +4,7 @@ import React from "react";
 function Logo({width= "100px"}){
     return(
         <>
-        <div>BlogWiter </div>
+        <div>BlogWiter Pro </div>
         </>
     )
 }
